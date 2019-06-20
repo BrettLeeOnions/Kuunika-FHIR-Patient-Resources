@@ -1,0 +1,28 @@
+{
+  "name": "kuunika-fhir-patient-resources",
+  "version": "1.0.0",
+  "description": "An express.js backend that serves FHIR Patient Data",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha || true",
+    "start": "nodemon app.js",
+    "dev": ""
+  },
+  "author": "Brett Larry Onions",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.6.0",
+    "morgan": "^1.9.1"
+  }
+}

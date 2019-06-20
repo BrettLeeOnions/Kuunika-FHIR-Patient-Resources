@@ -37,16 +37,28 @@ describe('POST: api/patient/',function(){
         .send(patientJSON)
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
+        .expect(201)
         .then((response) => assert.equal(response.body.success,"Patient Record Added"))
     });
 });
 describe('PUT:  api/patient/:id', function(){
-    it('Should return an individual resource',function(){
-        
-    });
+    it('Should return an updated patient resource from put request',function(){
+        return supertest(app)
+                .put('/api/patient/5d0b38eb8b2878c41489d1fd')
+                .send(updatedPatientJSON)
+                .set('Accept', 'application/json')
+                .expect('Content-Type', /json/)
+                .expect(200)
+                .then((response) => assert.isNotNull(response.body));
+            });
 });
 describe('DELETE: api/patient/:id',function(){
-    it('Should return an individual resource',function(){
-        
+    it('Should set a patient active propert to false on delete request',function(){
+        return supertest(app)
+                .delete('/api/patient/5d0b21823112b7bdb6939893')
+                .expect('Content-Type', /json/)
+                .set('Accept', 'application/json')
+                .expect(200)
+                .then((response) => {assert.equal(response.body.success, "Patient Record Successfully Removed")});
     });
 });

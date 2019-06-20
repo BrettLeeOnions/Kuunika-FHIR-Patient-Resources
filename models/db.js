@@ -137,6 +137,7 @@ let contact = mongoose.model('contact', contactSchema);
 
 let patientSchema = Schema({
     resourceType:         String,
+    _lastUpdated:         Date,
     text:                 [textSchema],
     identifier:           [identifierSchema],
     active:               Boolean,
@@ -152,18 +153,6 @@ let patientSchema = Schema({
 });
 
 let patient = mongoose.model('patient',patientSchema);
-
-//let patientJSON = require('./patient.json');
-
-//let patientInstance = new patient(patientJSON);
-
-/*
-patientInstance.save((error) => {
-    if(error) throw error;
-
-    console.log('Saved');
-});
-*/
 
 module.exports = {
     db,
